@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --ucla-blue: #2274a5ff;
+  --pearl: #e7dfc6ff;
+  --alice-blue: #e9f1f7ff;
+  --rich-black: #131b23ff;
+  --cinereous: #816c61ff;
+}
+
+html {
+  font-family: "Montserrat", serif;
+  background-color: #fff;
+}
+
+.container {
+  header {
+    background-color: var(--ucla-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+    h1 {
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.5em;
+    }
+    button {
+      background-color: var(--alice-blue);
+      color: var(--ucla-blue);
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      padding: 5px 20px;
+    }
+  }
+  .books {
+    display: grid;
+    grid-template: auto / repeat(4, 200px);
+    justify-content: center;
+    .book {
+      display: flex;
+      flex-direction: column;
+      .cover {
+        background-color: darkseagreen;
+        background-image: url("/images/whiteBook.png");
+        background-repeat: no-repeat;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        /* align-items: center; */
+        padding: 70px 57px 0 61px;
+        span {
+          font-weight: 800;
+          color: var(--ucla-blue);
+        }
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        button {
+          font-weight: 600;
+          border-radius: 50px;
+          border: none;
+          padding: 5px 20px;
+          margin-bottom: 5px;
+        }
+        .read {
+          background-color: var(--rich-black);
+          color: var(--pearl);
+        }
+        .delete {
+          background-color: crimson;
+          color: var(--pearl);
+        }
+      }
+    }
+  }
+}
