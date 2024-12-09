@@ -26,7 +26,7 @@
           </svg>
           <h1>My library</h1>
         </div>
-        <button type="button">
+        <button type="button" id="updateDetails">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <title>plus</title>
             <path
@@ -217,47 +217,46 @@
     </div>
 
     <!-- Simple pop-up dialog box, containing a form -->
-    <dialog id="favDialog">
+    <dialog id="favDialog" open>
       <form method="dialog">
         <section>
           <p>
-            <label for="favAnimal">Favorite animal:</label>
-            <select id="favAnimal">
-              <option></option>
-              <option>Brine shrimp</option>
-              <option>Red panda</option>
-              <option>Spider monkey</option>
-            </select>
+            <label for="title">Title:</label>
+            <input type="text" name="title" />
+          </p>
+          <p>
+            <label for="author">Author:</label>
+            <input type="text" name="title" />
           </p>
         </section>
         <menu>
-          <button id="cancel" type="reset">Cancel</button>
-          <button type="submit">Confirm</button>
+          <button type="submit" id="saveButton">Save book</button>
+          <button id="cancel" type="reset">x</button>
         </menu>
       </form>
     </dialog>
 
-    <menu>
-      <button id="updateDetails">Update details</button>
-    </menu>
+    <!-- <menu> -->
+    <!--   <button id="updateDetails">Update details</button> -->
+    <!-- </menu> -->
 
-    <script>
-      (function () {
-        var updateButton = document.getElementById("updateDetails");
-        var cancelButton = document.getElementById("cancel");
-        var favDialog = document.getElementById("favDialog");
-
-        // Update button opens a modal dialog
-        updateButton.addEventListener("click", function () {
-          favDialog.showModal();
-        });
-
-        // Form cancel button closes the dialog box
-        cancelButton.addEventListener("click", function () {
-          favDialog.close();
-        });
-      })();
-    </script>
+    <!-- <script> -->
+    <!--   (function () { -->
+    <!--     var updateButton = document.getElementById("updateDetails"); -->
+    <!--     var cancelButton = document.getElementById("cancel"); -->
+    <!--     var favDialog = document.getElementById("favDialog"); -->
+    <!---->
+    <!--     // Update button opens a modal dialog -->
+    <!--     updateButton.addEventListener("click", function () { -->
+    <!--       favDialog.showModal(); -->
+    <!--     }); -->
+    <!---->
+    <!--     // Form cancel button closes the dialog box -->
+    <!--     cancelButton.addEventListener("click", function () { -->
+    <!--       favDialog.close(); -->
+    <!--     }); -->
+    <!--   })(); -->
+    <!-- </script> -->
     <script src="scripts/main.js"></script>
   </body>
 </html>
