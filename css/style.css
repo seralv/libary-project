@@ -99,7 +99,9 @@ dialog {
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
   form {
     section {
+      padding-top: 20px;
       p {
+        margin: 10px;
         label {
           font-size: 0.8em;
           font-weight: 400;
@@ -112,6 +114,10 @@ dialog {
       }
     }
     menu {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin-top: 20px;
       #saveButton {
         background-color: var(--ucla-blue);
         color: #fff;
@@ -122,8 +128,8 @@ dialog {
         top: 10px;
         right: 10px;
         width: 30px;
-        height: 30px;
-        background-color: #f44336;
+        height: 40px;
+        background-color: crimson;
         border: none;
         border-radius: 50%;
         color: white;
