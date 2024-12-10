@@ -55,7 +55,7 @@ svg {
   }
   .books {
     display: grid;
-    grid-template: auto / repeat(3, 200px);
+    grid-template: auto / repeat(4, 200px);
     justify-content: center;
     .book {
       display: flex;
@@ -63,6 +63,7 @@ svg {
       justify-content: center;
       .cover {
         background-image: url("/images/whiteBook.png");
+        background-size: 200px;
         background-repeat: no-repeat;
         height: 200px;
         display: flex;
@@ -83,7 +84,7 @@ svg {
           margin-bottom: 5px;
         }
         .read {
-          background-color: var(--rich-black);
+          /*background-color: var(--rich-black);*/
           color: var(--pearl);
         }
         .delete {
