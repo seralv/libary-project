@@ -1,34 +1,57 @@
-const myLibrary = [
-  "El principito",
-  "Mallku",
-  "Raza de Bronce",
-  "El Zambo Salvito",
-  "Tempestad en la cordillera",
-  "Ojitos",
-];
+const myLibrary = [];
+const favDialog = document.getElementById("favDialog");
+const cancelButton = document.getElementById("cancel");
 const modalButton = document.getElementById("updateDetails");
+const saveBook = document.getElementById("saveButton");
 modalButton.addEventListener("click", function () {
-  modalAddBook();
+  favDialog.showModal();
+});
+cancelButton.addEventListener("click", function () {
+  favDialog.close();
+});
+saveBook.addEventListener("click", function () {
+  // event.preventDefault();
+  const titleInput = favDialog.querySelector('input[name="title"]');
+  const authorInput = favDialog.querySelector('input[name="author"]');
+
+  const title = titleInput.value.trim();
+  const author = authorInput.value.trim();
+
+  if (title && author) {
+    const newBook = new Book(title, author);
+    myLibrary.push(newBook);
+    console.log("Book added:", newBook);
+    console.log("My library:", myLibrary);
+
+    // Clean inputs and close modal
+    titleInput.value = "";
+    authorInput.value = "";
+    favDialog.close();
+    readMyLibrary();
+  } else {
+    alert("Please fill the inputs");
+  }
 });
 
 class Book {
-  constructor(title, author) {
+  constructor(title, author, read = false) {
     this.title = title;
     this.author = author;
+    this.read = read;
+  }
+
+  addBookToLibrary() {
+    myLibrary.push(this.name);
   }
 }
 
-function addBookToLibrary() {}
-
 function readMyLibrary() {
-  // const bookName = document.getElementById("bookName");
   const books = document.getElementById("books");
   for (const book in myLibrary) {
-    console.log(`${parseInt(book) + 1}: ${myLibrary[book]}`);
     books.innerHTML += `
         <div class="book">
           <div class="cover">
-            <span id="bookName">${myLibrary[book]}</span>
+            <span id="bookName">${myLibrary[book].title}</span>
           </div>
           <div class="buttons" id="buttons">
             <button type="button" class="read">
@@ -40,7 +63,7 @@ function readMyLibrary() {
                   fill="#e7dfc6"
                 />
               </svg>
-              Not read
+              Not readed
             </button>
             <button type="button" class="delete">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -58,21 +81,3 @@ function readMyLibrary() {
 `;
   }
 }
-
-function modalAddBook() {
-  var updateButton = document.getElementById("updateDetails");
-  var cancelButton = document.getElementById("cancel");
-  var favDialog = document.getElementById("favDialog");
-
-  // Update button opens a modal dialog
-  updateButton.addEventListener("click", function () {
-    favDialog.showModal();
-  });
-
-  // Form cancel button closes the dialog box
-  cancelButton.addEventListener("click", function () {
-    favDialog.close();
-  });
-}
-
-readMyLibrary();

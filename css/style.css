@@ -55,19 +55,21 @@ svg {
   }
   .books {
     display: grid;
-    grid-template: auto / repeat(3, 200px);
+    grid-template: auto / repeat(4, 200px);
     justify-content: center;
     .book {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       .cover {
         background-image: url("/images/whiteBook.png");
         background-repeat: no-repeat;
         height: 200px;
         display: flex;
         justify-content: center;
+        align-items: center;
         text-align: center;
-        padding: 70px 57px 0 61px;
+        padding: 28px 57px 45px 61px;
         span {
           font-weight: 800;
           color: var(--ucla-blue);
@@ -97,6 +99,7 @@ dialog {
   border-radius: 30px;
   border: 2px solid var(--ucla-blue);
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  width: 40%;
   form {
     section {
       padding-top: 20px;
@@ -124,6 +127,7 @@ dialog {
         background-color: var(--ucla-blue);
         color: #fff;
         width: 100%;
+        padding: 8px;
       }
       #cancel {
         position: absolute;
