@@ -1,8 +1,11 @@
 const myLibrary = [];
+const myNewLibrary = [];
 const favDialog = document.getElementById("favDialog");
 const cancelButton = document.getElementById("cancel");
 const modalButton = document.getElementById("updateDetails");
 const saveBook = document.getElementById("saveButton");
+// const deleteButton = document.getElementById("deleteButton");
+
 modalButton.addEventListener("click", function () {
   favDialog.showModal();
 });
@@ -10,7 +13,6 @@ cancelButton.addEventListener("click", function () {
   favDialog.close();
 });
 saveBook.addEventListener("click", function () {
-  // event.preventDefault();
   const titleInput = favDialog.querySelector('input[name="title"]');
   const authorInput = favDialog.querySelector('input[name="author"]');
 
@@ -33,6 +35,10 @@ saveBook.addEventListener("click", function () {
   }
 });
 
+// deleteButton.addEventListener("click", function () {
+//   console.log(`${myLibrary}: myLibrary`);
+// });
+
 class Book {
   constructor(title, author, read = false) {
     this.title = title;
@@ -47,6 +53,7 @@ class Book {
 
 function readMyLibrary() {
   const books = document.getElementById("books");
+  books.innerHTML = "";
   for (const book in myLibrary) {
     books.innerHTML += `
         <div class="book">
@@ -65,7 +72,7 @@ function readMyLibrary() {
               </svg>
               Not readed
             </button>
-            <button type="button" class="delete">
+            <button type="button" class="delete" id="deleteButton" data-index="${myLibrary[book]}">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <title>delete</title>
                 <path
@@ -80,4 +87,5 @@ function readMyLibrary() {
         </div>
 `;
   }
+  console.log("myLibrary:", myLibrary);
 }
